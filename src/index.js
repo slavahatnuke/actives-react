@@ -22,7 +22,7 @@ module.exports = (state) => {
             }
 
             render() {
-                return React.createElement(Component, Object.assign({}, this.state, this.props));
+                return React.createElement(Component, this.state);
             }
         }
     };

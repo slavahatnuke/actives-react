@@ -1,5 +1,6 @@
 let React = require('react');
 let Connection = require('actives').Connection;
+let Reflection = require('actives').Reflection;
 
 module.exports = (state) => {
     return (Component) => {
@@ -8,7 +9,10 @@ module.exports = (state) => {
                 super(props, context);
                 this.state = state;
 
+                Reflection.merge(this.state, props);
+
                 this._actives_subscriber = (event, state) => {
+                    Reflection.merge(state, props);
                     this.setState(state);
                 };
             }

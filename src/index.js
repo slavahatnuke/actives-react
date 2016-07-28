@@ -1,6 +1,8 @@
 let React = require('react');
-let Connection = require('actives').Connection;
-let Reflection = require('actives').Reflection;
+let actives = require('actives');
+
+let Connection = actives.Connection;
+let Reflection = actives.Reflection;
 
 module.exports = (state) => {
     return (Component) => {

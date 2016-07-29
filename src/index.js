@@ -9,13 +9,10 @@ module.exports = (state) => {
         return class ActivesComponent extends React.Component {
             constructor(props, context) {
                 super(props, context);
-                this.state = state;
-
-                Reflection.merge(this.state, props);
+                this.state = Reflection.merge({}, state, props);
 
                 this._actives_subscriber = (event, state) => {
-                    Reflection.merge(state, props);
-                    this.setState(state);
+                    this.setState(Reflection.merge({}, state, props));
                 };
             }
 

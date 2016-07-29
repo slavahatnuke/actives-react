@@ -1,6 +1,6 @@
 {
   "name": "actives-react",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "actives - react bridge",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/slavahatnuke/actives-react#readme",
   "devDependencies": {
-    "actives": "0.0.10",
+    "actives": "0.0.13",
     "babel": "^6.5.2",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",

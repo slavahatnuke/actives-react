@@ -43,11 +43,11 @@ box.connect('TimerState2', {Timer: 'TimerBox2/Timer', TimerService: 'TimerBox2/T
     });
 
 box.add('TimerView1', ({TimerState}) => {
-    return connect(TimerState)(TimerView1);
+    return connect(TimerState, TimerView1);
 });
 
 box.add('TimerView2', ({TimerState}) => {
-    return connect(TimerState)(TimerView2);
+    return connect(TimerView2, TimerState);
 });
 
 box.add('TimerView3', ({TimerState2}) => {

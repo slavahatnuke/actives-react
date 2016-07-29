@@ -4,8 +4,23 @@ let actives = require('actives');
 let Connection = actives.Connection;
 let Reflection = actives.Reflection;
 
-module.exports = (state) => {
-    return (Component) => {
+module.exports = (...args) => {
+    let state;
+    let component;
+
+    args.forEach((arg) => {
+        if (Connection.isStateObject(arg)) {
+            state = arg;
+        } else {
+            component = arg;
+        }
+    });
+
+    if (!state) {
+        throw Error('State is not defined');
+    }
+
+    let connect = (Component) => {
         return class ActivesComponent extends React.Component {
             constructor(props, context) {
                 super(props, context);
@@ -29,4 +44,6 @@ module.exports = (state) => {
             }
         }
     };
+
+    return component ? connect(component) : connect;
 };
